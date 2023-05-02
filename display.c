@@ -30,8 +30,7 @@ void displayGreeting(){
 ******************************************************************************************************/
 void displayMenuDivider(char left, char mid, char right){
 	printf("\n");
-	for(int i = 1; i <= 3; i++)
-	{
+	for(int i = 1; i <= 3; i++){
 		printLine(left, HLINE, mid, 4);
 		for(int j = 1; j <= 19; j++)
 			printf("%c", HLINE);
@@ -51,27 +50,26 @@ void displayMenu(){
 	char sDrink [4][15] = { "Mineral Water", "Iced Tea", "Soda", "Fruit Juice" };
 	
 	float fMain  [4]    = {90.00, 105.00, 120.00, 135.00};
-	float fSide  [4]	= {20.00, 35.00,  50.00,  65.00};
+	float fSide  [4]    = {20.00, 35.00,  50.00,  65.00};
 	float fDrink [4]    = {25.00, 35.00, 45.00, 55.00};
 
 	printf("\n");
 	
-    for(i = 1; i <= 3; i++)
-	{
-    	printLine(TLCORNER, HLINE, TRCORNER, 37);
-    	printf(" ");
+        for(i = 1; i <= 3; i++){
+                printLine(TLCORNER, HLINE, TRCORNER, 37);
+                printf(" ");
 	}
     
-    printf( "\n" "%-16c MAINS %16c " "%-16c SIDES %16c " "%-16c DRINKS %15c" , VLINE, VLINE, VLINE, VLINE, VLINE, VLINE);
+        printf( "\n" "%-16c MAINS %16c " "%-16c SIDES %16c " "%-16c DRINKS %15c" , VLINE, VLINE, VLINE, VLINE, VLINE, VLINE);
 			
 	displayMenuDivider(VLLINE, HDLINE, VRLINE);
  	
-    printf("\n");
+        printf("\n");
 	
 	for(i = 1; i <= 3; i++)
 		printf("%c ID %c\t      TYPE\t %c    PRICE   %c ", VLINE, VLINE, VLINE, VLINE);
 
-    displayMenuDivider(VLLINE, VHLINE, VRLINE);
+        displayMenuDivider(VLLINE, VHLINE, VRLINE);
 	printf("\n");
 	
 	for(i = 0; i < 4; i++){
@@ -108,9 +106,9 @@ void displayMOSTDDivider(char left,	char mid, char right){
 ******************************************************************************************************/
 void displayMSOTD(struct order *random, struct meal product[]){	
 	displayProduct(product);
-    printLine(TLCORNER, HLINE, TRCORNER, 117);
-    printf("\n%-45c Today's Meal Set of the Day %45c", VLINE, VLINE);
-    displayMOSTDDivider(VLLINE, HDLINE, VRLINE);
+        printLine(TLCORNER, HLINE, TRCORNER, 117);
+        printf("\n%-45c Today's Meal Set of the Day %45c", VLINE, VLINE);
+        displayMOSTDDivider(VLLINE, HDLINE, VRLINE);
 	printf("\n%c %20s %17c %20s %18c %20s %17c", VLINE, "MAIN", VLINE, "SIDE", VLINE, "DRINK", VLINE);
 	displayMOSTDDivider(VLLINE, VHLINE, VRLINE);
 	printf("\n%c", VLINE);
@@ -124,7 +122,7 @@ void displayMSOTD(struct order *random, struct meal product[]){
  * @breif: This function prints the discount banner for the Mealset of the Day.
 ******************************************************************************************************/
 void displayMSOTDMessage(){
-    printf("\e[1;93m\n");
+        printf("\e[1;93m\n");
 	printLine(TTLCORNER, THLINE, TTRCORNER, 117);
 	printf("\n%-36c Avail the Meal Set of the Day to get 15%% off! %36c\n", TVLINE, TVLINE);
 	printLine(TBLCORNER, THLINE, TBRCORNER, 117);
@@ -149,12 +147,12 @@ void displayReceiptLine(char left, char mid, char right, int length){
  * @breif: This function displays the header of the receipt.
 ******************************************************************************************************/
 void displayReceiptHeader(){
-	printf("\n");
+        printf("\n");
 	printLine(TLCORNER, HLINE, TRCORNER, 49);
-    printf("\n%c " "\t\t Andrea's Kitchen!\t\t " " %c\n", VLINE, VLINE);
-    printf("%c " "\t\t  CCPROG1 | S11A\t\t " " %c\n", VLINE, VLINE);
-    printf("%c " "\t\t     Receipt:\t\t\t " " %c\n", VLINE, VLINE);
-    displayReceiptLine(VLINE, '-', VLINE, 47);
+        printf("\n%c " "\t\t Andrea's Kitchen!\t\t " " %c\n", VLINE, VLINE);
+        printf("%c " "\t\t  CCPROG1 | S11A\t\t " " %c\n", VLINE, VLINE);
+        printf("%c " "\t\t     Receipt:\t\t\t " " %c\n", VLINE, VLINE);
+        displayReceiptLine(VLINE, '-', VLINE, 47);
 	printLine(VLINE, 32, VLINE, 49);
 }
 

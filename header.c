@@ -39,9 +39,9 @@
  * + This is used to store the food item's names as a string.
 ******************************************************************************************************/
 struct meal {
-    char main[10];
-    char side[20];
-    char drink[15];
+        char main[10];
+        char side[20];
+        char drink[15];
 };
 
 /******************************************************************************************************
@@ -49,9 +49,9 @@ struct meal {
  * + This is used to store the product prices=.
 ******************************************************************************************************/
 struct value {
-    float main;
-    float side;
-    float drink;
+        float main;
+        float side;
+        float drink;
 };
 
 /******************************************************************************************************
@@ -59,9 +59,9 @@ struct value {
  * + This is used to store the user's orders.
 ******************************************************************************************************/
 struct order {
-    int main;
-    int side;
-    int drink;
+        int main;
+        int side;
+        int drink;
 };
 
 /******************************************************************************************************
@@ -98,14 +98,14 @@ void displayReceipt(struct order *meals, struct meal product[], struct value *pr
  * @param product: an array of meal structs representing the product names.
 ******************************************************************************************************/
 void displayProduct(struct meal product[]){
-    struct meal m[5] = {
-        {"None", "None", "None"},
-        {"Chicken", "Steamed Rice", "Mineral Water"},
-        {"Pork", "Shredded Corn", "Iced Tea"},
-        {"Fish", "Mashed Potato", "Soda"},
-        {"Beef", "Steam Vegetables", "Fruit Juice"}
-    };
-    memcpy(product, m, sizeof(m));
+        struct meal m[5] = {
+                {"None", "None", "None"},
+                {"Chicken", "Steamed Rice", "Mineral Water"},
+                {"Pork", "Shredded Corn", "Iced Tea"},
+                {"Fish", "Mashed Potato", "Soda"},
+                {"Beef", "Steam Vegetables", "Fruit Juice"}
+        };
+        memcpy(product, m, sizeof(m));
 }
 
 /******************************************************************************************************
@@ -113,14 +113,14 @@ void displayProduct(struct meal product[]){
  * @param price: pointer to an array of value structures.
 ******************************************************************************************************/
 void initializePrices(struct value *price){
-    struct value p[5] = {
-        {0.00, 0.00, 0.00},
-        {90.00, 20.00, 25.00},
-        {105.00, 35.00, 35.00},
-        {120.00, 50.00, 45.00},
-        {135.00, 65.00, 55.00}
-    };
-    memcpy(price, p, sizeof(p));
+        struct value p[5] = {
+                {0.00, 0.00, 0.00},
+                {90.00, 20.00, 25.00},
+                {105.00, 35.00, 35.00},
+                {120.00, 50.00, 45.00},
+                {135.00, 65.00, 55.00}
+        };
+        memcpy(price, p, sizeof(p));
 }
 
 /******************************************************************************************************
@@ -131,7 +131,7 @@ void initializePrices(struct value *price){
 void reloadMenu(struct order *random, struct meal product[]){
 	system("cls");
 	displayGreeting();
-    displayMenu();
-    displayMSOTD(random, product);
-    displayMSOTDMessage();
+        displayMenu();
+        displayMSOTD(random, product);
+        displayMSOTDMessage();
 }
