@@ -12,4 +12,4 @@ A Simple C program that takes user inputs of the orders and computes the total a
 - Modifying
 
 ## Demo
-<img src = "https://user-images.githubusercontent.com/132218960/235405987-2e53fff3-f54f-429e-9133-a5552ef3a7e3.gif" width = "700">
+<img src = "https://user-images.githubusercontent.com/132218960/235575968-c096c014-2c0a-42b2-a84d-031f68c51cce.gif" width = "700">
