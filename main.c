@@ -54,6 +54,7 @@ int main(){
 						{
 		                    printf("\n\tWould you like to:\n\t [1] Continue to Payment\n\t [2] Add another order \n\n\t Option ");
 		                    scanf("%d", &nYChoice);
+		                    fflush(stdin);
 		
 		                    if(nYChoice != 1 && nYChoice != 2)
 		                        printf("\e[1;31m" "\t  Invalid Input. Please choose one of the options.\n" "\e[1;97m");
@@ -86,6 +87,7 @@ int main(){
 					{
 		                printf("\n\tWould you like to:\n\t [1] Modify Order\n\t [2] Cancel order \n\n\t Option ");
 		                scanf("%d", &nNChoice);
+		                fflush(stdin);
 		
 		                if(nNChoice != 1 && nNChoice != 2)
 		                    printf("\e[1;31m" "\t  Invalid Input. Please choose one of the options.\n" "\e[1;97m");
@@ -105,6 +107,7 @@ int main(){
 									reloadMenu(&random, product);
 		                            printf("\n\tWould you like to:\n\t [1] Cancel Current Order\n\t [2] Cancel All Orders \n\n\t Option ");
 		                            scanf("%d", &nCancelChoice);
+		                            fflush(stdin);
 		
 		                            if(nCancelChoice != 1 && nCancelChoice != 2)
 		                                printf("\e[1;31m" "\t  Invalid Input. Please choose one of the options.\n" "\e[1;97m");
@@ -137,7 +140,7 @@ int main(){
 	    } while((nOrderNumber > 0 && nOrderNumber < 4) && (nLoopControl != 1));
 	    
 	    printf("\n\nPress Enter to Continue ...");
-		getch();
+		getchar();
 		reloadMenu(&random, product);
 		
 		do

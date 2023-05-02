@@ -1,3 +1,10 @@
+/******************************************************************************************************
+ * @breif: This function prints a three-part line of Extended ASCII characters. 
+ * @param left: the leftmost character.
+ * @param mid: the middle character.
+ * @param right: the rightmost character.
+ * @param length: the length of the middle character.
+******************************************************************************************************/
 void printLine(char left, char mid, char right, int length){
 	printf("%c", left);
 	for(int i = 1; i <= length; i++)
@@ -5,6 +12,9 @@ void printLine(char left, char mid, char right, int length){
 	printf("%c", right);	
 }
 
+/******************************************************************************************************
+ * @breif: This function displays a Greeting Card.
+******************************************************************************************************/
 void displayGreeting(){
     printf("\e[1;97m");
 	printLine(TLCORNER, HLINE, TRCORNER, 117);
@@ -12,6 +22,12 @@ void displayGreeting(){
 	printLine(BLCORNER, HLINE, BRCORNER, 117);
 }
 
+/******************************************************************************************************
+ * @breif:This function displays a Menu Divider to be used in the displayMenu Function.
+ * @param left: the leftmost character.
+ * @param mid: the middle character.
+ * @param right: the rightmost character.
+******************************************************************************************************/
 void displayMenuDivider(char left, char mid, char right){
 	printf("\n");
 	for(int i = 1; i <= 3; i++)
@@ -24,6 +40,9 @@ void displayMenuDivider(char left, char mid, char right){
 	}
 }
 
+/******************************************************************************************************
+ * @breif: This function displays a tabular menu that indicates an Item's ID, Type and Price.
+******************************************************************************************************/
 void displayMenu(){
 	int  i;
 	
@@ -68,6 +87,12 @@ void displayMenu(){
 	}
 }
 
+/******************************************************************************************************
+ * @breif: This function prints a three-part divider of Extended ASCII characters for the MOSTD banner. 
+ * @param left: the leftmost character.
+ * @param mid: the middle character.
+ * @param right: the rightmost character.
+******************************************************************************************************/
 void displayMOSTDDivider(char left,	char mid, char right){
 	printf("\n");
 	printLine(left, HLINE, mid, 38);
@@ -76,6 +101,11 @@ void displayMOSTDDivider(char left,	char mid, char right){
 	printLine(mid, HLINE, right, 38);
 }
 
+/******************************************************************************************************
+ * @breif: This function displays the random Meal Set of the Day.
+ * @param random: a pointer to a struct order that contains the randomly generated meal set of the day.
+ * @param product: an array of meal structs representing the product names.
+******************************************************************************************************/
 void displayMSOTD(struct order *random, struct meal product[]){	
 	displayProduct(product);
     printLine(TLCORNER, HLINE, TRCORNER, 117);
@@ -90,6 +120,9 @@ void displayMSOTD(struct order *random, struct meal product[]){
 	displayMOSTDDivider(BLCORNER, HULINE, BRCORNER);
 }
 
+/******************************************************************************************************
+ * @breif: This function prints the discount banner for the Mealset of the Day.
+******************************************************************************************************/
 void displayMSOTDMessage(){
     printf("\e[1;93m\n");
 	printLine(TTLCORNER, THLINE, TTRCORNER, 117);
@@ -98,6 +131,13 @@ void displayMSOTDMessage(){
 	printf("\033[0m"); 
 }
 
+/******************************************************************************************************
+ * @breif: This function displays a divider to be used in receipt-related functions.
+ * @param left: the leftmost character.
+ * @param mid: the middle character.
+ * @param right: the rightmost character.
+ * @param length: the length of the middle character.
+******************************************************************************************************/
 void displayReceiptLine(char left, char mid, char right, int length){
 	printf("%c ", left);
 	for(int i = 1; i <= length; i++)
@@ -105,6 +145,9 @@ void displayReceiptLine(char left, char mid, char right, int length){
 	printf(" %c\n", right);	
 }
 
+/******************************************************************************************************
+ * @breif: This function displays the header of the receipt.
+******************************************************************************************************/
 void displayReceiptHeader(){
 	printf("\n");
 	printLine(TLCORNER, HLINE, TRCORNER, 49);
@@ -115,6 +158,9 @@ void displayReceiptHeader(){
 	printLine(VLINE, 32, VLINE, 49);
 }
 
+/******************************************************************************************************
+ * @breif: This function displays the footer of the receipt.
+******************************************************************************************************/
 void displayReceiptFooter(){
 	displayReceiptLine(VLINE, '-', VLINE, 47);
 	printLine(VLINE, 32, VLINE, 49);

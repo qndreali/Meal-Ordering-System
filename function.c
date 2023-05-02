@@ -1,3 +1,8 @@
+/******************************************************************************************************
+ * @breif: This function lets the user input what ordering option they would like.
+ * @param pOrderOption: a pointer to the address of the ordering option.
+ * @return pOrderOption: returns the value pointed to by pOrderOption.
+******************************************************************************************************/
 int inputOrderingOption(int *pOrderOption){
     do
     {
@@ -14,6 +19,12 @@ int inputOrderingOption(int *pOrderOption){
     return *pOrderOption;
 }
 
+/******************************************************************************************************
+ * @breif: This function lets the user input what Main, Side and Drink that they would like.
+ * @param meal: a pointer to the order struct where the inputted values will be stored.
+ * @param product: an array of meal structs representing the product names.
+ * @param nOrderNumber: an integer representing the current order number.
+******************************************************************************************************/
 void inputOrder(struct order *meal, struct meal product[], int nOrderNumber){
     displayProduct(product);
     
@@ -54,6 +65,12 @@ void inputOrder(struct order *meal, struct meal product[], int nOrderNumber){
     printf("\t\t%s\n", product[meal->drink].drink);
 }
 
+/******************************************************************************************************
+ * @brief: This function takes in a randomly generated meal set of the day and displays its details.
+ * @param random: a pointer to a struct order that contains the randomly generated meal set of the day.
+ * @param product: an array of meal structs representing the product names.
+ * @param nOrderNumber: an integer representing the current order number.
+******************************************************************************************************/
 void inputMealSetOfTheDay(struct order *random, struct meal product[], int nOrderNumber){
     displayProduct(product);
     printf("\n  You chose the Meal Set of the Day!\n\n     Order %d:\n", nOrderNumber);
@@ -62,6 +79,11 @@ void inputMealSetOfTheDay(struct order *random, struct meal product[], int nOrde
     printf("\t Drink:\t %d\n\t\t %s\n", random->drink, product[random->drink].drink);
 }
 
+/******************************************************************************************************
+ * @breif: This function lets the user confirm their order.
+ * @param pOrderOption: pointer to the address of the confirmation option.
+ * @return pOrderOption: returns the value pointed to by pOrderOption
+******************************************************************************************************/
 char inputConfirmationOption(char *pConfirmationOption){
     do
 	{
@@ -77,6 +99,13 @@ char inputConfirmationOption(char *pConfirmationOption){
     return *pConfirmationOption;
 }
 
+/******************************************************************************************************
+ * @breif: This function calculates for the subtotal and returns the summation of the cost of an order.
+ * @param meal: a pointer to the order struct where the inputted values will be stored.
+ * @param price: a pointer to the struct value which contains the price of each menu item.
+ * @param random: a pointer to a struct order that contains the randomly generated meal set of the day.
+ * @returns the [discounted-] subtotal of the meal order as a floating-point number.
+******************************************************************************************************/
 float calculateSubtotal(struct order *meal, struct value *price, struct order *random){
     if(random->main == meal->main && random->side == meal->side && random->drink == meal->drink)
         return (price[meal->main].main + price[meal->side].side + price[meal->drink].drink) * 0.85;
@@ -85,6 +114,14 @@ float calculateSubtotal(struct order *meal, struct value *price, struct order *r
 
 }
 
+/******************************************************************************************************
+ * @breif: This function calculates for the total and returns the summation of the cost of all orders.
+ * @param meal: a pointer to the order struct where the inputted values will be stored.
+ * @param nOrderNumber: an integer representing the current order number.
+ * @param price: a pointer to the struct value which contains the price of each menu item.
+ * @param random: a pointer to a struct order that contains the randomly generated meal set of the day.
+ * @return total: returns the total price of all orders.
+******************************************************************************************************/
 float calculateTotal(struct order *meals, int nOrderNumber, struct value *price, struct order *random){
     float total = 0.0;
     for(int i = 0; i < nOrderNumber; i++)
@@ -92,6 +129,14 @@ float calculateTotal(struct order *meals, int nOrderNumber, struct value *price,
     return total;
 }
 
+/******************************************************************************************************
+ * @breif: This function displays the breakdown per order and presents it in a receipt-format.
+ * @param meal: a pointer to the order struct where the inputted values will be stored.
+ * @param product: an array of meal structs representing the product names.
+ * @param price: a pointer to the struct value which contains the price of each menu item.
+ * @param nOrderNumber: an integer representing the current order number.
+ * @param random: An order struct representing the meal set of the day.
+******************************************************************************************************/
 void displayReceipt(struct order *meals, struct meal product[], struct value *price, int nOrderNumber, struct order random){
 	displayReceiptHeader();
     for(int i = 0; i < nOrderNumber; i++) {
